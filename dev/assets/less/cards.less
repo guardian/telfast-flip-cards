@@ -1,0 +1,194 @@
+/* ============================================
+
+  Cards
+
+=============================================== */
+
+@card-height: unit(540 / 16, rem);
+
+// vue transitions
+
+.scale-fade-enter-active {
+  transition: opacity 0.75s, transform 0.75s cubic-bezier(0.4, 0.6, 0.2, 1);
+}
+.scale-fade-enter, .scale-fade-leave {
+  transform: scale(0.925);
+  opacity: 0;
+}
+
+
+// cards
+
+.cards {
+  opacity: 0;
+  // loaded state
+  &.loaded {
+    opacity: 1;
+    transition: opacity .75s;
+  }
+
+  .card {
+    .relative;
+    .noselect;
+    cursor: pointer;
+    margin-bottom: floor(unit(@gutter, px));
+
+    @media @desktop {
+      margin-bottom: floor(unit(@gutter * 2, px));
+    }
+
+
+    &.column {
+      width: 100%;
+      @media @desktop { width: unit(100/2, %); }
+      @media @wide { width: unit(100/3, %); }
+    }
+
+    .card__wrapper {
+      .relative;
+      .text-center;
+      height: @card-height;
+      perspective: 900px;
+      transform-style: preserve-3d;
+      box-shadow: 0 -@1px @2px darken(@color-bg, 3%);
+
+      max-width: unit(420 / 16, rem);
+      margin: 0 auto;
+
+      @media @desktop {
+        max-width: none;
+      }
+
+      .card__front,
+      .card__back {
+        .absolute;
+        width: 100%;
+        height: 100%;
+        padding: @20px @30px;
+
+        transform-origin: 50%;
+
+        backface-visibility: hidden;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.3, 1);
+
+        @media @desktop {
+          padding: @20px @20px;
+        }
+
+        @media @xwide {
+          padding: @20px @30px;
+        }
+
+        header {
+          min-height: unit(75 / 16, rem);
+          padding: @24px 0;
+          border-top: @1px dashed tint(@color-primary, 75%);
+          border-bottom: @1px dashed tint(@color-primary, 75%);
+          h2,
+          h3 {
+            margin: 0;
+          }
+        }
+        &:after {
+          .absolute;
+          bottom: @20px;
+          left: @30px;
+          right: @30px;
+
+          content: '';
+          width: auto;
+          border-top: @1px dashed tint(@color-primary, 75%);
+        }
+      }
+
+
+      // front of card
+
+      .card__front {
+        background: @color-bg-alt;
+        transform: rotateY(0deg);
+        z-index: 2;
+
+        header {
+          h2 { .font-light; }
+        }
+        footer {
+          padding: @9px 0;
+          border-bottom: @1px dashed tint(@color-primary, 75%);
+          ul {
+            .list-reset;
+            li {
+              .font-sm;
+              .font-normal-italic;
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+              b {
+                .font-xs;
+                .font-normal;
+                margin-right: @9px;
+              }
+            }
+          }
+        }
+        .image {
+          .absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          z-index: -1;
+
+          @media @wide {
+            bottom: @12px;
+          }
+        }
+      }
+
+      // back of card
+
+      .card__back {
+        transform: rotateY(180deg);
+        background: @color-primary;
+        color: @color-bg-alt;
+
+
+        header {
+          border-color: tint(@color-primary, 20%);
+          h3 {}
+          margin-bottom: @18px;
+        }
+
+        p {
+          .font-display;
+          .font-lg;
+
+          @media @tablet {
+            .font-xl;
+          }
+
+          @media @desktop {
+            line-height: 1.2;
+          }
+
+          @media @xwide {
+            line-height: 1.33;
+          }
+        }
+
+        &:after {
+          border-color: tint(@color-primary, 20%);
+        }
+      }
+    }
+
+
+    // flip card on class change
+    &.flipped {
+      z-index: 10;
+      .card__wrapper {
+       .card__front { transform: rotateY(-180deg);}
+       .card__back { transform: rotateY(0deg); }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+// object visibility
+
+.hidden 						{ display: none; }
+.block 							{ display: block; }
+.inline-block 			{ display: inline-block; }
+.inline 						{ display: inline; }
+.visible 						{ visibility: visible; }
+.invisible 					{ visibility: hidden; }
+
+
+.visible-xs {
+	@media @tablet 		{ .hidden; }
+}
+
+.hidden-xs {
+	@media @mobile 		{ .hidden; }
+}
+
+.hidden-sm {
+	@media @tablet 		{ .hidden; }
+	@media @desktop  	{ .block; }
+}
+

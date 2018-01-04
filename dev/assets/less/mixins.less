@@ -1,0 +1,106 @@
+/* ============================================
+
+	Mixins
+
+=============================================== */
+
+
+.round(@radius) 		{ border-radius: unit(@radius, px); }
+.circle				 			{ border-radius: 50%; }
+
+.font-size(@px) {
+	font-size: unit(@px / 16, rem);
+	line-height: round( @base-line-height - ( 0.00333 * (@px * @base-line-height) ), 1 );
+}
+
+.translate(@x, @y) {
+	transform: translate(@x, @y);
+}
+
+.translate3d(@x, @y, @z) {
+	transform: translate(@x, @y, @z);
+}
+
+.scale(@x, @y) {
+	transform: scale(@x, @y);
+}
+
+.bg-image-fill {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.fill-overlay(@color, @opacity) {
+	width: 100%;
+	height: 100%;
+	background: fade(@color, @opacity);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
+.fill-overlay-gradient(
+	@direction: 180deg,
+	@color-start: @color-bg-alt,
+	@position-start: 0,
+	@color-end: @color-bg-alt,
+	@position-end: 100%,
+) {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(@direction, @color-start @position-start, @color-end @position-end);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
+.fill-gradient(
+	@direction: 180deg,
+	@color-start: @color-bg-alt,
+	@position-start: 0,
+	@color-end: @color-bg-alt,
+	@position-end: 100%,
+) {
+	background-image: linear-gradient(@direction, @color-start @position-start, @color-end @position-end);
+}
+
+
+.space(@size) {
+	letter-spacing: unit(@size, em);
+}
+
+.border-box {
+	box-sizing: border-box;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.smooth-fonts {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.unsmooth-fonts {
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: default;
+}
+
+.absolute-fill {
+	.absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.placeholder(@color) {
+	&::-webkit-input-placeholder 	{ color: @color; transition: color 0.2s; }
+	&:-moz-placeholder 						{ color: @color; transition: color 0.2s; }
+	&::-moz-placeholder 					{ color: @color; transition: color 0.2s; }
+	&:-ms-input-placeholder 			{ color: @color; transition: color 0.2s; }
+}

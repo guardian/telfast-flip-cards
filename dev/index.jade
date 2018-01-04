@@ -1,0 +1,19 @@
+doctype html
+
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    title The Guardian – Interactive Title
+
+    //- iframe messenger
+    script(src="//interactive.guim.co.uk/libs/iframe-messenger/iframeMessenger.js")
+    script iframeMessenger.enableAutoResize({ absoluteHeight: true });
+
+    //- fonts
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Vesper+Libre:400,700', type='text/css')
+
+  body
+    //- main content
+    main#app
+

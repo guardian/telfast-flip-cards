@@ -1,0 +1,64 @@
+{
+  "name": "guardian-telfast-flipcards",
+  "version": "1.3.0",
+  "author": "Grade",
+  "license": "UNLICENSED",
+  "description": "Guardian – Interactive Standalone Template",
+  "repository": "git@bitbucket.org:grade/guardian-telfast-flipcards.git",
+  "engines": {
+    "node": ">= 8"
+  },
+  "browserlists": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "scripts": {
+    "clean": "rm -rf public",
+    "lint": "eslint --fix dev/assets/js/**/*.js",
+    "dev": "NODE_ENV=development webpack-dev-server --open --hot",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack --progress --hide-modules",
+    "commit": "git add . && git commit -a",
+    "bump": "npm version patch",
+    "tag": "git tag $npm_package_version",
+    "version": "npm run build && git add public",
+    "prestage": "npm version patch -m '** Stage %s'",
+    "stage": "git push --tags origin HEAD:stage",
+    "predeploy": "npm version minor -m '**** Deploy %s'",
+    "deploy": "git push --tags origin HEAD:master",
+    "postdeploy": "rm -f $npm_package_name.*.zip && git archive -o $npm_package_name.$npm_package_version.zip HEAD"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-beta.3",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^2.0.0-beta.2",
+    "babel-preset-stage-3": "^6.24.1",
+    "copy-webpack-plugin": "^4.2.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.11.0",
+    "eslint-loader": "^1.9.0",
+    "extract-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^2",
+    "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "postcss-loader": "^2.0.8",
+    "pug": "^2.0.0-rc.4",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.3.0",
+    "style-loader": "^0.19.0",
+    "vue-loader": "^13.5.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.8",
+    "webpack": "^2",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "vue": "^2.5.8"
+  }
+}

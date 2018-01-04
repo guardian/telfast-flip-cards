@@ -1,0 +1,144 @@
+/* ============================================
+
+	Content nav
+
+=============================================== */
+
+nav.filters {
+	.font-sm;
+	margin: @12px auto @18px;
+
+	@media @tablet {
+		margin: @18px 0 @39px;
+	}
+
+
+	ul {
+		.list-reset;
+		.border-box;
+    .text-center;
+		width: 100%;
+		overflow: hidden;
+
+    @media @tablet {
+
+      margin: 0 auto;
+      display: table;
+    }
+
+		@media @wide { padding: 0 @90px; }
+
+    &.nav-mobile-open {
+      li.title {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+
+      li {
+        .block;
+
+      }
+    }
+
+		li {
+			.list-reset;
+			.hidden;
+			width: 100%;
+			color: darken(@color-text, 25%);
+			padding: 0 0 0.375rem;
+      max-width: unit(420 / 16, rem);
+      margin: 0 auto;
+
+
+			@media @tablet {
+				float: none;
+				display: table-cell !important;
+				width: auto;
+				padding: 0 @2px;
+			}
+
+      @media @desktop {
+        min-width: 75px;
+        padding: 0 @4px;
+      }
+
+			@media @wide { min-width: 90px; }
+
+			&.title {
+				margin-bottom: 0.75rem;
+				.block;
+				.font-base;
+
+				&:after {
+					.inline-block;
+          .relative;
+          top: @1px;
+          margin-left: @12px;
+
+					content: '';
+					width: @12px;
+					height: @12px;
+					background: url('data:image/svg+xml;utf8,<svg width="16px" height="16px" viewBox="0 0 16 16"  xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="3,5 8,11 13,5"/></svg>') no-repeat 50%;
+					transition: transform 0.3s ease-in-out;
+					transform: rotate(0deg);
+				}
+
+				@media @tablet {
+					.font-sm;
+          width: auto;
+					.block !important;
+					margin-bottom: 0;
+
+					&:after {
+						.hidden;
+					}
+				}
+
+        @media @desktop {
+          .font-md;
+          display: table-cell !important;
+        }
+			}
+
+
+			&:last-of-type {
+				padding-right: 0;
+			}
+
+			a {
+				.button;
+				.block;
+				.font-normal;
+				.font-size(14);
+				background: transparent;
+				border: @1px solid @color-border;
+				width: 100%;
+				color: @color-text;
+				margin: 0;
+        cursor: pointer;
+
+				transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+
+
+				&:hover {
+          border-color: darken(@color-secondary, 3%);
+					background-color: @color-secondary;
+					color: @color-text-reverse;
+				}
+
+				&.active,
+        &:active {
+					cursor: default;
+					background-color: @color-button;
+					border-color: @color-button;
+					color: @color-text-reverse;
+					pointer-events: none;
+				}
+
+			}
+
+		}
+	}
+}

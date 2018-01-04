@@ -1,0 +1,60 @@
+/* ============================================
+
+	Basics
+
+=============================================== */
+
+html, body {
+	margin: 0;
+	height: 100%;
+}
+
+// set box model
+
+header,
+section, article,
+div, li {
+	.border-box;
+}
+
+
+
+body {
+	.relative;
+	.font-normal;
+	.smooth-fonts;
+	font-size: 100%;
+	padding: 0;
+	line-height: @base-line-height;
+	color: @color-text;
+	background-color: @color-bg;
+	overflow-x: hidden;
+	// overflow: hidden; // required for live site in iFrame
+}
+
+
+main {
+	.font-base;
+	.border-box;
+	.relative;
+	padding: 0 0 1rem;
+	@media @tablet {
+		padding: 1rem 0;
+	}
+}
+
+hr {
+	border: 0;
+	margin: 0.5rem auto;
+	height: 1px;
+	widht: 100%;
+	border-top: 1px dashed darken(@color-bg, 25%);
+	&.alt {
+		margin: 0 auto 1.25rem;
+		@media @mobile {
+			border: 0;
+		}
+	}
+}
+
+

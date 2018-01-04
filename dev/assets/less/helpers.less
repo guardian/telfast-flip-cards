@@ -1,0 +1,111 @@
+/* ============================================
+
+	Helpers
+
+=============================================== */
+
+.overflow-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	.nowrap;
+}
+
+// hr default
+hr {
+	border: 0;
+	margin: 4.5rem auto;
+	height: 1px;
+	line-height: 1px;
+	border-top: 2px solid darken(@color-bg, 3%);
+	&.bottom-sm {
+		margin-bottom: 1.5rem;
+	}
+}
+
+// layout
+.fill-column 		{ width: 100%; }
+
+// vertical aligns
+.va-parent {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.va-child {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+// positions
+.absolute 			{ position: absolute; }
+.fixed 					{ position: fixed; }
+.relative 			{ position: relative; }
+.static					{ position: static; }
+
+// text
+.text-center		{ text-align: center; }
+.text-left			{ text-align: left; }
+.text-right			{ text-align: right; }
+
+.uppercase			{ text-transform: uppercase; }
+.keepcase				{ text-transform: none; }
+
+.nowrap 				{ white-space: nowrap; }
+
+.break-word			{ word-break: break-all; }
+
+// floats
+.float-left			{ float: left; }
+.float-right		{ float: right; }
+.float-none			{ float: none; }
+
+// other layout
+.clickBlock 		{ cursor: pointer; }
+
+.blockLink {
+	display: block;
+	width: 100%;
+	height: 100%;
+	.border-box;
+}
+
+.list-reset {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.clear {
+	clear: both;
+}
+
+
+// margin auto centering
+
+.margin-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// object visibility
+
+.hidden 						{ display: none; }
+.block 							{ display: block; }
+.inline-block 			{ display: inline-block; }
+.inline 						{ display: inline; }
+.visible 						{ visibility: visible; }
+.invisible 					{ visibility: hidden; }
+.table 							{ display: table; }
+.table-cell 				{ display: table-cell; }
+.flex								{ display: flex; }
