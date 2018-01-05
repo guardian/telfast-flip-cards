@@ -2,12 +2,15 @@
 article
   nav.filters(role="navigation")
     .container
-      ul.toggle(
+      .toggle(
           v-bind:class="{ 'nav-mobile-open': showMobileNav }"
         )
-        li.title(v-on:click="toggleNav") Where do you live?
-        li(v-for="region in regionOptions" v-on:click="filterRegion(region)")
-          a(:class="{'active': selectedRegion === region}") {{ region.toUpperCase() }}
+        .title(v-on:click="toggleNav") Where do you live?
+        div(v-for="region in regionOptions")
+          button(
+            v-on:click="filterRegion(region)"
+            v-bind:class="{'active': selectedRegion === region}"
+          ) {{ region.toUpperCase() }}
 
   section.container
     .cards.row(v-bind:class="{ 'loaded': isLoaded }")

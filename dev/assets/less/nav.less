@@ -13,8 +13,7 @@ nav.filters {
 	}
 
 
-	ul {
-		.list-reset;
+	.toggle {
 		.border-box;
     .text-center;
 		width: 100%;
@@ -29,20 +28,19 @@ nav.filters {
 		@media @wide { padding: 0 @90px; }
 
     &.nav-mobile-open {
-      li.title {
+      .title {
         &:after {
           transform: rotate(180deg);
         }
       }
 
-      li {
+      div {
         .block;
 
       }
     }
 
-		li {
-			.list-reset;
+		div {
 			.hidden;
 			width: 100%;
 			color: darken(@color-text, 25%);
@@ -87,17 +85,17 @@ nav.filters {
 				@media @tablet {
 					.font-sm;
           width: auto;
-					.block !important;
 					margin-bottom: 0;
+          display: table-cell !important;
+          vertical-align: middle;
 
-					&:after {
-						.hidden;
-					}
-				}
+          &:after {
+            .hidden;
+          }
+        }
 
         @media @desktop {
           .font-md;
-          display: table-cell !important;
         }
 			}
 
@@ -106,7 +104,7 @@ nav.filters {
 				padding-right: 0;
 			}
 
-			a {
+			button {
 				.button;
 				.block;
 				.font-normal;
@@ -128,8 +126,7 @@ nav.filters {
 					color: @color-text-reverse;
 				}
 
-				&.active,
-        &:active {
+				&.active {
 					cursor: default;
 					background-color: @color-button;
 					border-color: @color-button;
